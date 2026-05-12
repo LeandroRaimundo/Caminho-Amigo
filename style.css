@@ -84,3 +84,31 @@ hr {
   height: 1px;
   background: #ddd;
 }
+
+@media (max-width: 768px) {
+  .grid-animais {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  header {
+    padding: 1.5rem 1rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .info-animal h3 {
+    font-size: 1.3rem;
+  }
+
+  .informativo-rodape {
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .foto-animal {
+    height: 200px;
+  }
+}
