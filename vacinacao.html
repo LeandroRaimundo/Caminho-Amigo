@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vacinação Animal Gratuita - SP</title>
-    
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,7 +19,8 @@
             background-color: #4caf50;
             color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 20px 1px;
+            position: relative;
         }
 
         header h1 {
@@ -33,9 +35,83 @@
         }
 
         .container {
-            max-width: 800px;
-            margin: 30px auto;
+            max-width: 1000px;
+            margin: 20px auto;
             padding: 0 20px;
+        }
+
+        .menu-checkbox {
+            display: none;
+        }
+
+        .menu-botao {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 10;
+            position: absolute;
+            right: 20px;
+            top: 30%;
+            transform: translateY(-50%);
+        }
+
+        .menu-botao span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-links {
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            background-color: white;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            list-style: none;
+            padding: 10px 0;
+            margin: 10px 0 0 0;
+            display: none;
+            flex-direction: column;
+            min-width: 180px;
+            z-index: 9;
+            text-align: left;
+        }
+
+        .menu-links li a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .menu-links li a:hover {
+            background-color: #f4f7f6;
+            color: #4caf50;
+        }
+
+        .menu-checkbox:checked~.menu-links {
+            display: flex;
+        }
+
+        .menu-checkbox:checked~.menu-botao span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-checkbox:checked~.menu-botao span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-checkbox:checked~.menu-botao span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
 
         .alerta {
@@ -57,12 +133,12 @@
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
         .posto-card:hover {
-            transform: scale(1.02); 
+            transform: scale(1.02);
         }
 
         .posto-card h3 {
@@ -78,7 +154,7 @@
             line-height: 1.5;
         }
 
-        
+
 
         .tag-zona {
             display: inline-block;
@@ -101,11 +177,28 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <h1>Vacinação Antirrábica Gratuita</h1>
         <p>Postos fixos de atendimento para cães e gatos na cidade de São Paulo</p>
+
+        <nav class="menu-navegacao">
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+            <label for="menu-toggle" class="menu-botao">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="menu-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="vacinacao.html">Postos de Vacinação</a></li>
+                <li><a href="adotar.html">Castração Gratuita</a></li>
+                <li><a href="contato.html">Sobre Nós</a></li>
+            </ul>
+        </nav>
     </header>
 
     <div class="container">
@@ -116,7 +209,8 @@
                 <li>A vacina contra a Raiva é obrigatória e deve ser aplicada <strong>anualmente</strong>.</li>
                 <li>Leve os cães em guias e coleiras (e focinheira, se forem bravos).</li>
                 <li>Leve os gatos em caixas de transporte adequadas para evitar fugas.</li>
-                <li>Não se esqueça de levar a carteirinha de vacinação do animal (se não tiver, uma nova será feita).</li>
+                <li>Não se esqueça de levar a carteirinha de vacinação do animal (se não tiver, uma nova será feita).
+                </li>
             </ul>
         </section>
 
@@ -165,8 +259,10 @@
     </div>
 
     <footer>
-        <p>Dados coletados dos canais oficiais da Prefeitura de São Paulo. Confirme os horários por telefone antes de comparecer.</p>
+        <p>Dados coletados dos canais oficiais da Prefeitura de São Paulo. Confirme os horários por telefone antes de
+            comparecer.</p>
     </footer>
 
 </body>
+
 </html>
