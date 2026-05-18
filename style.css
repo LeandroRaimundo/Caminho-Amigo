@@ -1,4 +1,3 @@
-/* Configurações Gerais */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f7f6;
@@ -11,11 +10,13 @@ header {
   background-color: #4caf50;
   color: white;
   text-align: center;
-  padding: 2rem 0;
+  padding: 20px 1px;
+  position: relative;
 }
 
 .descricao {
   font-size: 25px;
+  margin-top: 10px;
 }
 
 .container {
@@ -24,7 +25,90 @@ header {
   padding: 0 20px;
 }
 
-/* Grid de Animais (2 colunas por enqaunto */
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+.menu-botao {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-botao span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  background-color: white;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  list-style: none;
+  padding: 10px 0;
+  margin: 10px 0 0 0;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 9;
+  text-align: left;
+}
+
+.menu-links li a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu-links li a:hover {
+  background-color: #f4f7f6;
+  color: #4caf50;
+}
+
+.menu-checkbox:checked ~ .menu-links {
+  display: flex;
+}
+
+.menu-checkbox:checked ~ .menu-botao span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-checkbox:checked ~ .menu-botao span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-checkbox:checked ~ .menu-botao span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 .grid-animais {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -32,7 +116,6 @@ header {
   margin-bottom: 50px;
 }
 
-/* Estilo do Card */
 .card-animal {
   background: white;
   border-radius: 12px;
@@ -48,13 +131,13 @@ header {
 .foto-animal {
   width: 100%;
   height: 400px;
-  background-color: #ddd; /* Cor de fundo caso não tenha imagem */
+  background-color: #ddd;
 }
 
 .foto-animal img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Faz a imagem preencher o quadrado sem distorcer */
+  object-fit: cover;
 }
 
 .info-animal {
@@ -71,10 +154,9 @@ header {
   margin: 5px 0;
 }
 
-/* Informativo Inferior */
-.informativo-rodape {
+.informativo {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 1px;
   padding: 20px;
   line-height: 1.6;
 }
@@ -103,7 +185,7 @@ hr {
     font-size: 1.3rem;
   }
 
-  .informativo-rodape {
+  .informativo {
     padding: 15px;
     font-size: 1rem;
   }
